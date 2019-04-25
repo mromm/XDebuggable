@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">XDebuggable</string>
+    <string name="app_name">调试开关</string>
     <string name="xposedDescription">Open ro.debuggable(only support wechat)</string>
 </resources>

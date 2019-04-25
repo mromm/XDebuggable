@@ -10,8 +10,8 @@ android {
         applicationId "info.loveai.xposed.xdebuggable"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 20190424
-        versionName "2019.04.24"
+        versionCode 201904251
+        versionName "2019.04.25.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
