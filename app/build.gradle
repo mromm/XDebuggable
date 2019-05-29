@@ -5,19 +5,31 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    signingConfigs{
+        xparser{
+            keyAlias "parser"
+            keyPassword "123456"
+            storeFile file('../xdebug.keystore')
+            storePassword "123456"
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "info.loveai.xposed.xdebuggable"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 201904251
-        versionName "2019.04.25.1"
+        versionCode 201905281
+        versionName "2019.05.28.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.xparser
+        }
+        debug{
+            signingConfig signingConfigs.xparser
         }
     }
 }
