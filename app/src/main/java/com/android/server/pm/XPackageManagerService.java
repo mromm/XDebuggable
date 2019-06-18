@@ -33,7 +33,9 @@ public class XPackageManagerService {
                             int flags = ai.flags;
                             if ((flags & ApplicationInfo.FLAG_SYSTEM) == 0
                                     && (flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP)== 0){
-                                if (pi.packageName.equals("com.tencent.mm")){
+                                if (pi.packageName.equals("com.tencent.mm")
+                                    || pi.packageName.startsWith("com.tencent")
+                                    || pi.packageName.equals("com.eg.android.AlipayGphone")){
                                     ai.flags = ai.flags | ApplicationInfo.FLAG_DEBUGGABLE;
                                     param.setResult(pi);
                                 }
