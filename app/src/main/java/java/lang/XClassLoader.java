@@ -48,7 +48,7 @@ public class XClassLoader {
                                         byte[] data = (byte[])mGetBytes.invoke(dex);
                                         if (data != null){
                                             if (name.startsWith("de.robv.android.xposed")) return;
-                                            
+
                                             XposedBridge.log(mPrefix + "dex size:" + data.length);
                                             XposedBridge.log(mPrefix + "class name:" + name);
                                             ClassLoader classLoader = (ClassLoader)param.thisObject;
