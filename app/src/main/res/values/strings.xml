@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">调试开关</string>
     <string name="xposedDescription">Open ro.debuggable(only support wechat)</string>
+    <string name="admob_app_id">ca-app-pub-9880926895077532~6037105833</string>
+    <string name="admob_banner_id">ca-app-pub-9880926895077532/9076479943</string>
+    <string name="admob_interstitial_id">ca-app-pub-9880926895077532/8927881102</string>
 </resources>
