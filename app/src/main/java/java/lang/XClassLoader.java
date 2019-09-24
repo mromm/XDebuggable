@@ -5,6 +5,7 @@ import com.sundayliu.utils.IOHelper;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
+import info.loveai.xposed.xdebuggable.XDumpDex;
 
 import java.lang.reflect.Method;
 
@@ -48,15 +49,20 @@ public class XClassLoader {
                                         byte[] data = (byte[])mGetBytes.invoke(dex);
                                         if (data != null){
                                             if (name.startsWith("de.robv.android.xposed")) return;
+                                            if (name.startsWith("android.")) return;
+                                            if (name.startsWith("java.")) return;
 
                                             XposedBridge.log(mPrefix + "dex size:" + data.length);
                                             XposedBridge.log(mPrefix + "class name:" + name);
-                                            ClassLoader classLoader = (ClassLoader)param.thisObject;
-                                            if (classLoader != null){
-                                                XposedBridge.log(mPrefix + "classloader:" + classLoader.toString());
-                                            }
+//                                            ClassLoader classLoader = (ClassLoader)param.thisObject;
+//                                            if (classLoader != null){
+//                                                XposedBridge.log(mPrefix + "classloader:" + classLoader.toString());
+//                                            }
 
-                                            String filename = String.format("/sdcard/sdk/dex2/dex_%d.dex",data.length);
+                                            // String filename = String.format("/sdcard/sdk/dex2/dex_%d.dex",data.length);
+                                            String filename = String.format("/data/data/%s/files/dex_%d.dex",
+                                                    XDumpDex.sCurrentPackageName,
+                                                    data.length);
                                             IOHelper.writeByte(data,filename);
                                         }
                                     }

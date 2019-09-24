@@ -14,7 +14,8 @@ public class XDebugMod implements IXposedHookLoadPackage, IXposedHookZygoteInit 
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
         XLuckyPatcher.handle(lpparam);
         XDebugSwitch.handle(lpparam);
-        //XDumpDex.handle(lpparam);
+        XDumpDex.handle(lpparam);
+        XSSLPinning.handle(lpparam);
     }
 
     @Override
