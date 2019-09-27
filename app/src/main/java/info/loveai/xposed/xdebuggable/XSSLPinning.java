@@ -1,19 +1,29 @@
 package info.loveai.xposed.xdebuggable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 // https://codeshare.frida.re/@masbog/frida-android-unpinning-ssl/
 // https://github.com/ac-pm/Inspeckage
 public class XSSLPinning {
     private static final String PKG_NAME = "com.android.browser";
+    private static List<String> PKG_NAME_LIST = new ArrayList<String>();
+    static{
+        PKG_NAME_LIST.add("com.android.browser");
+        PKG_NAME_LIST.add("com.forkliu");
+    }
     public static void handle(final XC_LoadPackage.LoadPackageParam lpparam) {
-        if (!lpparam.processName.equals(PKG_NAME)){
-            return;
-        }
-        if (!lpparam.packageName.equals(PKG_NAME)){
-            return;
+        boolean needHook = false;
+        for(String name:PKG_NAME_LIST){
+            if (lpparam.packageName.startsWith(name)){
+                needHook = true;
+                break;
+            }
         }
 
+        if (!needHook) return;
         org.conscrypt.XTrustManagerImpl.handle(lpparam);
     }
 }

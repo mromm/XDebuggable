@@ -1,5 +1,8 @@
 package org.conscrypt;
 
+import android.app.AndroidAppHelper;
+import android.app.Application;
+
 import java.security.cert.TrustAnchor;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -47,6 +50,10 @@ public class XTrustManagerImpl {
                     protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
                         // XposedBridge.log(mPrefix);
                         // printStack();
+                        Application app = AndroidAppHelper.currentApplication();
+                        if (app != null && app.getPackageName().startsWith("com.forkliu")){
+                            printStack();
+                        }
                         return new ArrayList<X509Certificate>();
                     }
                 }
