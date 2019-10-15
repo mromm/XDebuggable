@@ -13,6 +13,9 @@ public class XSSLPinning {
     static{
         PKG_NAME_LIST.add("com.android.browser");
         PKG_NAME_LIST.add("com.forkliu");
+        PKG_NAME_LIST.add("org.chromium.chrome");
+        PKG_NAME_LIST.add("com.sankuai.meituan");
+        PKG_NAME_LIST.add("com.miui.packageinstaller");
     }
     public static void handle(final XC_LoadPackage.LoadPackageParam lpparam) {
         boolean needHook = false;
