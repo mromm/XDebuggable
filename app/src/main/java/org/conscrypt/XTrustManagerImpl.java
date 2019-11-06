@@ -52,7 +52,7 @@ public class XTrustManagerImpl {
                         // printStack();
                         Application app = AndroidAppHelper.currentApplication();
                         if (app != null && (app.getPackageName().startsWith("com.forkliu") || app.getPackageName().startsWith("org.chromium.chrome"))){
-                            printStack();
+                            // printStack();
                         }
                         return new ArrayList<X509Certificate>();
                     }
