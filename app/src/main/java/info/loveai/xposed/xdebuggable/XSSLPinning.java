@@ -20,7 +20,7 @@ public class XSSLPinning {
         PKG_NAME_LIST.add("com.huawei");
     }
     public static void handle(final XC_LoadPackage.LoadPackageParam lpparam) {
-        boolean needHook = false;
+        boolean needHook = true;
         for(String name:PKG_NAME_LIST){
             if (lpparam.packageName.startsWith(name)){
                 needHook = true;
