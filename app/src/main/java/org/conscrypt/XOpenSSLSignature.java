@@ -26,7 +26,7 @@ public final class XOpenSSLSignature {
 
                     @Override
                     protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                        XposedBridge.log(mPrefix + "disabled verifysignature ...");
+                        // XposedBridge.log(mPrefix + "disabled verifysignature ...");
                         param.setResult(Boolean.TRUE);
                     }
                 }

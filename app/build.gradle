@@ -13,13 +13,13 @@ android {
             storePassword "123456"
         }
     }
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "info.loveai.xposed.xdebuggable"
         minSdkVersion 23
-        targetSdkVersion 28
-        versionCode 19101501
-        versionName "2019.10.15.1"
+        targetSdkVersion 29
+        versionCode 19120201
+        versionName "2019.12.2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
